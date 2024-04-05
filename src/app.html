@@ -6,6 +6,9 @@
 	<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	%sveltekit.head%
+</head>
+
+<nav>
 	<div class="navbar fixed bg-base-100">
 		<div class="flex-none">
 			<label for="my-drawer" class="btn btn-square btn-ghost drawer-button">
@@ -27,10 +30,10 @@
 						<!-- Sidebar content here -->
 						<img src="/helldiver2_logo.png">
 						<div class="divider"></div>
-						<li><a href="/">Home</a></li>
-						<li><a href="/news">News</a></li>
-						<li><a href="/campaigns">Campaigns</a></li>
-						<li><a href="/planets">Planets</a></li>
+						<li><a class="text-xl" href="/">Home</a></li>
+						<li><a class="text-xl" href="/news">News</a></li>
+						<li><a class="text-xl" href="/campaigns">Campaigns</a></li>
+						<li><a class="text-xl" href="/planets">Planets</a></li>
 					</ul>
 				</div>
 			</div>
@@ -52,7 +55,7 @@
 
 
 	</div>
-</head>
+</nav>
 
 <body data-sveltekit-preload-data="hover">
 	<div style="display: contents">%sveltekit.body%</div>
