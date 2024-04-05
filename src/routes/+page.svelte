@@ -1,18 +1,8 @@
-<script>
-let promise = getGalaxyStatistic();
+<script lang="ts">
 
-async function getGalaxyStatistic() {
-    const response = await fetch('https://api-hellhub-collective.koyeb.app/api/statistics/galaxy');
-    const data = await response.json()
+import type { PageData } from './$types';
+export let data: PageData;
 
-    if (response.ok) {
-        console.log(data)
-        return data
-    } else {
-        throw new Error('Fetching failed!')
-    }
-    
-}
 </script>
 
 <div class="bg-[url('/helldiver2_bg1.png')] w-full h-screen">
@@ -23,7 +13,7 @@ async function getGalaxyStatistic() {
             Galaxy Summary Statistics
         </div>
     </div>
-    {#await promise}
+    {#await data.galaxies}
     <div class="flex justify-center items-center">
         <span class="loading loading-spinner loading-lg"></span>
     </div>

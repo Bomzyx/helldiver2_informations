@@ -1,41 +1,27 @@
 <script lang="ts">
-
-let promise = getMission();
-
-async function getMission() {
-    const response = await fetch('https://helldiverstrainingmanual.com/api/v1/war/news');
-    const data = await response.json()
-
-    if (response.ok) {
-        console.log(data)
-        return data
-    } else {
-        throw new Error('Fetching failed!')
-    }
-    
-}
+import type { PageData } from "../$types";
+export let data: PageData;
 </script>
 
-    
-    {#await promise }
+    {#await data.news }
     <div class="flex justify-center items-center ">
         <span class="loading loading-spinner loading-lg"></span>
     </div>
-    {:then missions}
+    {:then news}
         <div>
 
         <div>
             <img src="/helldivers.jpeg" alt="Helldivers 2">
         </div>
 
-        <div class="text-3xl p-2">
+        <div class="text-4xl underline p-3">
             Helldiver 2 News
         </div>
 
-        {#each missions as mission}
+        {#each news as news }
             <div class="p-4">
-                <h4>Order ID {mission.id}</h4>
-                <li>{mission.message}</li>
+                <h4>Order ID {news.id}</h4>
+                <li>{news.message}</li>
             </div>
         {/each}
         
